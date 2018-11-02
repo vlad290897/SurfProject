@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkGrey"
+    >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/sircleshape"
+        android:hint="@string/searchByFilmTitle"
+        android:drawableLeft="@drawable/ic_search"
+        android:paddingLeft="19dp"
+        android:paddingBottom="11dp"
+        android:paddingTop="11dp"
+        android:textCursorDrawable="@drawable/cursor_color"
+        />
+
+</android.support.v7.widget.Toolbar>
