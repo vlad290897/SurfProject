@@ -2,25 +2,41 @@ package com.example.vlad.testproject.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.Toolbar
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.vlad.testproject.R
+import com.example.vlad.testproject.adapters.MoviesAdapter
+import com.example.vlad.testproject.models.Movie
+import com.example.vlad.testproject.models.ResponseMovie
 import com.example.vlad.testproject.network.NetworkApi
 import com.example.vlad.testproject.network.NetworkClient
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MainViewInterface {
+
+    val presenter = MainPresenter(this)
+
+    override fun displayMovies(responseMovie: ResponseMovie) {
+        rv_movies.layoutManager = LinearLayoutManager(this)
+        val adapter = MoviesAdapter(responseMovie.listMovie)
+        rv_movies.adapter = adapter
+    }
+
+    override fun displayError(s: String) {
+        Log.d("Error",s)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val response = NetworkClient.instance.create(NetworkApi::class.java)
-        response.getMovies("6ccd72a2a8fc239b13f209408fc31c33")
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe({ v-> Log.d("RxJava",v.listMovie.toString()) }, {e-> Log.d("RxError",e.toString())})
+        getMoviesList()
     }
+
+    private fun getMoviesList() {
+        presenter.getMovies()
+    }
+
 
 }

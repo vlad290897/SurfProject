@@ -6,20 +6,22 @@
     android:layout_height="183dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:layout_marginTop="24dp">
+    android:background="@color/white"
+    android:layout_marginTop="8dp">
 
     <ImageView
         android:id="@+id/movie_image"
         android:layout_width="119dp"
-        android:layout_height="183dp"
+        android:layout_height="match_parent"
         android:src="@color/darkGrey" />
 
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="193dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:text="Бегущий по лезвию"
+        android:layout_marginTop="12dp"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -27,22 +29,28 @@
     <TextView
         android:id="@+id/description"
         android:layout_width="198dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:ellipsize="end"
+        android:maxLines="3"
         app:layout_constraintTop_toBottomOf="@id/movie_title"
         app:layout_constraintLeft_toRightOf="@id/movie_image"
+        android:lineSpacingExtra="6sp"
         android:layout_marginLeft="14dp"
-        android:text="asdasd"
+        android:text="asdasdasdasdasdasasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasdasdsadasdasdasdasdasd"
+        android:fontFamily="sans-serif"
         android:textSize="14sp"
         android:textColor="@color/movie_text_color"
 
         />
     <TextView
         android:id="@+id/release_date"
-        android:layout_width="94dp"
-        android:layout_height="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/movie_image"
         android:drawableLeft="@drawable/ic_alendar"
+        android:textSize="14sp"
         android:layout_marginBottom="16dp"
         />
 

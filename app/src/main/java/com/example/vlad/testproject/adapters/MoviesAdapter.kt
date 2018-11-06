@@ -21,7 +21,8 @@ class MoviesAdapter(val movieList:ArrayList<Movie>) : RecyclerView.Adapter<Movie
     }
 
     override fun onBindViewHolder(holder: MoviesAdapter.ViewHolder, position: Int) {
-        Picasso.get().load(movieList[position].image).into(holder.movieImage)
+        val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+        Picasso.get().load(BASE_IMAGE_URL + movieList[position].image).into(holder.movieImage)
         holder.title.text = movieList[position].title
         holder.description.text = movieList[position].description
         holder.releaseDate.text = movieList[position].releaseDate
