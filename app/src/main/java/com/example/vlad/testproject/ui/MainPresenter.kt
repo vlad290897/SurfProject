@@ -38,9 +38,13 @@ class MainPresenter(val view: MainViewInterface) : MainPresenterInterface {
 
             override fun onNext(t: ResponseMovie) {
                 view.displayMovies(t)
+                view.hideSwipeRefreshProgress()
+                view.hideProgress()
             }
 
             override fun onError(e: Throwable) {
+                view.hideProgress()
+                view.hideSwipeRefreshProgress()
                 Log.d(TAG,"Error $e")
                 e.printStackTrace()
                 view.displayError("Проверьте ваше соединение с интернетом и попробуйте еще раз")

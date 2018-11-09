@@ -7,4 +7,5 @@
     <color name="white">#fafafa</color>
     <color name="black">#de000000</color>
     <color name="movie_text_color">#8b000000</color>
+    <color name="electric_blue">#004fff</color>
 </resources>

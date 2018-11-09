@@ -16,6 +16,11 @@ class MoviesAdapter(val movieList:ArrayList<Movie>) : RecyclerView.Adapter<Movie
         return ViewHolder(v)
     }
 
+    fun clearItems(){
+        movieList.clear()
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
         return movieList.size
     }
