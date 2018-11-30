@@ -2,4 +2,5 @@
     <string name="app_name">TestProject</string>
     <string name="searchByFilmTitle">Поиск по названию фильма</string>
     <string name="errorString">Проверьте ваше соединение с интернетом и попробуйте еще раз</string>
+    <string name="error_refresh">Нам не удалось обработать ваш запрос. Попробуйте еще раз</string>
 </resources>

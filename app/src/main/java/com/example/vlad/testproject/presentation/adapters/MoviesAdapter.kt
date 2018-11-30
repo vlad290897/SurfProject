@@ -1,4 +1,4 @@
-package com.example.vlad.testproject.adapters
+package com.example.vlad.testproject.presentation.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.vlad.testproject.R
-import com.example.vlad.testproject.models.Movie
+import com.example.vlad.testproject.presentation.fragments.movies.model.Movie
 import com.squareup.picasso.Picasso
 
 class MoviesAdapter(val movieList:ArrayList<Movie>) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item,parent,false)
         return ViewHolder(v)
     }
@@ -25,7 +25,7 @@ class MoviesAdapter(val movieList:ArrayList<Movie>) : RecyclerView.Adapter<Movie
         return movieList.size
     }
 
-    override fun onBindViewHolder(holder: MoviesAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
         Picasso.get().load(BASE_IMAGE_URL + movieList[position].image).into(holder.movieImage)
         holder.title.text = movieList[position].title
